@@ -3,16 +3,16 @@ package yaddoong.core;
 import yaddoong.core.member.Grade;
 import yaddoong.core.member.Member;
 import yaddoong.core.member.MemberService;
-import yaddoong.core.member.MemberServiceImpl;
 import yaddoong.core.order.Order;
 import yaddoong.core.order.OrderService;
-import yaddoong.core.order.OrderServiceImpl;
 
 public class OrderApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
