@@ -1,7 +1,6 @@
 package yaddoong.core.order;
 
 import yaddoong.core.discount.DiscountPolicy;
-import yaddoong.core.discount.FixDiscountPolicy;
 import yaddoong.core.member.Member;
 import yaddoong.core.member.MemberRepository;
 import yaddoong.core.member.MemoryMemberRepository;
@@ -9,7 +8,7 @@ import yaddoong.core.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private DiscountPolicy discountPolicy;
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
