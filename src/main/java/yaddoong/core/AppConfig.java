@@ -2,6 +2,7 @@ package yaddoong.core;
 
 import yaddoong.core.discount.DiscountPolicy;
 import yaddoong.core.discount.FixDiscountPolicy;
+import yaddoong.core.discount.RateDiscountPolicy;
 import yaddoong.core.member.MemberRepository;
 import yaddoong.core.member.MemberService;
 import yaddoong.core.member.MemberServiceImpl;
@@ -27,6 +28,7 @@ public class AppConfig {
 
     public DiscountPolicy discountPolicy() {
         return new FixDiscountPolicy();
+        //return new RateDiscountPolicy();
     }
 
 }
