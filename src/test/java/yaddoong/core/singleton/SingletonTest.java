@@ -3,6 +3,8 @@ package yaddoong.core.singleton;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import yaddoong.core.AppConfig;
 import yaddoong.core.member.MemberService;
 
@@ -41,5 +43,21 @@ public class SingletonTest {
         // same ==
         // equal equals
 
+    }
+
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤")
+    void springContainer() {
+        //AppConfig appConfig = new AppConfig();
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        MemberService memberService = ac.getBean("memberService", MemberService.class);
+        MemberService memberService2 = ac.getBean("memberService", MemberService.class);
+
+        // 참조값이 다른 것을 확인
+        System.out.println("memberService1 = " + memberService);
+        System.out.println("memberService2 = " + memberService2);
+
+        // memberSerivce1 != memberService2
+        assertThat(memberService).isSameAs(memberService2);
     }
 }
