@@ -1,8 +1,10 @@
 package yaddoong.core.discount;
 
+import org.springframework.stereotype.Component;
 import yaddoong.core.member.Grade;
 import yaddoong.core.member.Member;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;
