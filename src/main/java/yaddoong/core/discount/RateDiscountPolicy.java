@@ -3,11 +3,12 @@ package yaddoong.core.discount;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import yaddoong.core.annotation.MainDiscountPolicy;
 import yaddoong.core.member.Grade;
 import yaddoong.core.member.Member;
 
 @Component
-@Primary
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;
